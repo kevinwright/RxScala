@@ -46,6 +46,7 @@ libraryDependencies ++= Seq(
 //
 // test and local debug:
 //
+  "junit"                       %  "junit"                         % "4.11"              % "it,test",
   "org.scalatest"               %% "scalatest"                     % "2.0"               % "it,test"
 )
 
@@ -74,7 +75,6 @@ packageOptions <<= (Keys.version, Keys.name, Keys.artifact) map {
   )
 }
 
-testOptions in Test += Tests.Argument("html", "console", "junitxml")
 
 
 
