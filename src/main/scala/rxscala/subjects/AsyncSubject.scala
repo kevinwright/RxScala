@@ -15,7 +15,6 @@
  */
 package rxscala.subjects
 
-import rxscala.Subject
 
 object AsyncSubject {
   def apply[T](): AsyncSubject[T] = {

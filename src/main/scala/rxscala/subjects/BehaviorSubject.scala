@@ -15,8 +15,6 @@
  */
 package rxscala.subjects
 
-import rxscala.Subject
-
 object BehaviorSubject {
   def apply[T](value: T): BehaviorSubject[T] = {
     new BehaviorSubject[T](rx.subjects.BehaviorSubject.createWithDefaultValue(value))

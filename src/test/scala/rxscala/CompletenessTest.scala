@@ -197,7 +197,7 @@ class CompletenessTest extends JUnitSuite {
   @Ignore // because spams output
   @Test def printScalaInstanceMethods(): Unit = {
     printMethodSet("Instance methods of rx.lang.scala.Observable", 
-                   typeOf[rxscala.Observable[_]])
+                   typeOf[rxscala.observables.Observable[_]])
   }
   
   @Ignore // because spams output
@@ -209,7 +209,7 @@ class CompletenessTest extends JUnitSuite {
   @Ignore // because spams output
   @Test def printScalaCompanionMethods(): Unit = {
     printMethodSet("Companion methods of rx.lang.scala.Observable",
-                   typeOf[rxscala.Observable.type])
+                   typeOf[rxscala.observables.Observable.type])
   }
   
   def javaMethodSignatureToScala(s: String): String = {
@@ -266,7 +266,7 @@ class CompletenessTest extends JUnitSuite {
     println("\nTesting that all mentioned Scala methods exist")
     println(  "----------------------------------------------\n")
     
-    val actualMethods = getPublicInstanceAndCompanionMethods(typeOf[rxscala.Observable[_]]).toSet
+    val actualMethods = getPublicInstanceAndCompanionMethods(typeOf[rxscala.observables.Observable[_]]).toSet
     var good = 0
     var bad = 0
     for ((javaM, scalaM) <- SortedMap(correspondence.toSeq :_*)) { 
@@ -284,7 +284,7 @@ class CompletenessTest extends JUnitSuite {
   }
   
   def setTodoForMissingMethods(corresp: Map[String, String]): Map[String, String] = {
-    val actualMethods = getPublicInstanceAndCompanionMethods(typeOf[rxscala.Observable[_]]).toSet
+    val actualMethods = getPublicInstanceAndCompanionMethods(typeOf[rxscala.observables.Observable[_]]).toSet
     for ((javaM, scalaM) <- corresp) yield
       (javaM, if (actualMethods.contains(scalaM) || scalaM.charAt(0) == '[') scalaM else "[**TODO: missing**]")
   }
@@ -297,7 +297,7 @@ class CompletenessTest extends JUnitSuite {
   
   @Ignore // because we prefer the verbose version
   @Test def checkScalaMethodPresence(): Unit = {
-    checkMethodPresence(correspondence.values, typeOf[rxscala.Observable[_]])
+    checkMethodPresence(correspondence.values, typeOf[rxscala.observables.Observable[_]])
   }
   
   def scalaToJavaSignature(s: String) = 

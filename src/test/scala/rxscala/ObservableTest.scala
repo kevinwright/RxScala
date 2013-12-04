@@ -3,6 +3,8 @@ package rxscala
 import org.junit.Assert._
 import org.junit.{ Ignore, Test }
 import org.scalatest.junit.JUnitSuite
+import rxscala.observables.Observable
+import rxscala.observables.richops._
 
 class ObservableTests extends JUnitSuite {
 

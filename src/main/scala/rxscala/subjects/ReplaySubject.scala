@@ -15,8 +15,6 @@
  */
 package rxscala.subjects
 
-import rxscala.Subject
-
 object ReplaySubject {
   def apply[T](): ReplaySubject[T] = {
     new ReplaySubject[T](rx.subjects.ReplaySubject.create())

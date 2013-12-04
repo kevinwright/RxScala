@@ -15,8 +15,6 @@
  */
 package rxscala.subjects
 
-import rxscala.Subject
-
 object PublishSubject {
   def apply[T](): PublishSubject[T] = {
     new PublishSubject[T](rx.subjects.PublishSubject.create())

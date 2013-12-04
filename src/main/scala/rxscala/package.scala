@@ -17,6 +17,7 @@ package rxscala
 
 import java.util.concurrent.TimeUnit
 import java.util.Date
+import rxscala.observables.Observable
 
 /**
  * This package contains all classes that RxScala users need.

@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 package rxscala
+package subjects
+
+import rxscala.observables.Observable
 
 /**
 * A Subject is an Observable and an Observer at the same time.

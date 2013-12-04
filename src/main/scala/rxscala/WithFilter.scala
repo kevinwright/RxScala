@@ -17,6 +17,7 @@ package rxscala
 
 import ImplicitFunctionConversions.scalaBooleanFunction1ToRxBooleanFunc1
 import ImplicitFunctionConversions.scalaFunction1ToRxFunc1
+import rxscala.observables.Observable
 
 // Cannot yet have inner class because of this error message:
 // "implementation restriction: nested class is not allowed in value class.

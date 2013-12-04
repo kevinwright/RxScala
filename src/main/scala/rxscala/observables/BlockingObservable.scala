@@ -48,8 +48,8 @@ class BlockingObservable[+T] private[rxscala] (val asJava: rx.observables.Blocki
     asJava.forEach(f)
   }
   
-  def withFilter(p: T => Boolean): WithFilter[T] = {
-    new WithFilter[T](p, asJava)
+  def withFilter(p: T => Boolean): BlockingWithFilter[T] = {
+    new BlockingWithFilter[T](p, asJava)
   }
 
   // last                 -> use toIterable.last
@@ -132,12 +132,12 @@ class BlockingObservable[+T] private[rxscala] (val asJava: rx.observables.Blocki
 // Cannot yet have inner class because of this error message: 
 // "implementation restriction: nested class is not allowed in value class.
 // This restriction is planned to be removed in subsequent releases."  
-private[observables] class WithFilter[+T] (p: T => Boolean, asJava: rx.observables.BlockingObservable[_ <: T]) {
+private[observables] class BlockingWithFilter[+T] (p: T => Boolean, asJava: rx.observables.BlockingObservable[_ <: T]) {
   import rxscala.ImplicitFunctionConversions._
   
   // there's no map and flatMap here, they're only available on Observable
   
-  def withFilter(q: T => Boolean) = new WithFilter[T]((x: T) => p(x) && q(x), asJava)
+  def withFilter(q: T => Boolean) = new BlockingWithFilter[T]((x: T) => p(x) && q(x), asJava)
   
   def foreach(f: T => Unit): Unit = {
     asJava.forEach((e: T) => {
